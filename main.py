@@ -9,3 +9,7 @@ what is this program going to do
 3.	WAIKATO AIR needs a program that will produce text detailing these discounts that WAIKATO AIR can then copy into a bulk email that they will send to all their members (you are only required to produce the text for WAIKATO AIR to copy. You do not produce the actual email).
 
 """
+
+
+
+
