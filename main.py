@@ -8,7 +8,26 @@ what is this program going to do
 
 3.	WAIKATO AIR needs a program that will produce text detailing these discounts that WAIKATO AIR can then copy into a bulk email that they will send to all their members (you are only required to produce the text for WAIKATO AIR to copy. You do not produce the actual email).
 
+
+NOTES: 
+
+amount of seats left : (input by user)
+the destinations : Auckland, Wellington and Rotorua
+
+
+percentage discount : the percentage discount 
+discount fare : toatal discount 
+discount type : 
+
 """
+
+
+amount_seats = imput('how meny seasts are in the plane? : ')
+amount_seats_left = input('What is the amout of seasts left? : ')
+
+
+
+
 
 
 
