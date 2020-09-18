@@ -11,6 +11,10 @@ what is this program going to do
 
 NOTES: 
 
+
+Equation: P% * X = Y or P% = (Y/X) * 100
+
+
 amount of seats left : (input by user)
 the destinations : Auckland, Wellington and Rotorua
 
