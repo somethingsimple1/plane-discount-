@@ -25,9 +25,44 @@ discount type :
 
 """
 
+a = [1, 2, 3, 4, 5] 
+print(*a) 
 
-amount_seats = imput('how meny seasts are in the plane? : ')
-amount_seats_left = input('What is the amout of seasts left? : ')
+
+print("printing lists separated by commas") 
+
+print(*a, sep = ", ") 
+
+
+print("printing lists in new line") 
+
+print(*a, sep = "\n") 
+
+
+
+
+
+
+name = input("what is your name : ")
+flyt = input('where are you fly : ')
+
+early = input('Are your able to fly tomorow? : ')
+if early = "yes": 
+
+
+elif early = "no": 
+
+
+else: 
+  print('that is not an opion')
+
+
+
+
+
+
+
+
 
 
 
