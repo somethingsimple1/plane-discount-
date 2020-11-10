@@ -44,7 +44,16 @@ print('where do your want to fly to {}?'.format(name))
 flight  = input('plase pick from 1 to 6 : ')
 
 
+#asking the use if they can fly tomorrow  
+early_bird = input('Are your able to fly tomorrow  {}? Yes or No : '.format(name))
+if early_bird == "yes": 
+  discount()
 
+elif early_bird == "no": 
+  print(" ")
+
+else: 
+  print('that is not an opion')
 
 
 
