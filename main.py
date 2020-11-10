@@ -26,7 +26,11 @@ discount type :
 
 """
 
+#what is this programe 
+print("this programe gives you discount depending on how many seats are left on each flight")
 
+#ask for name
+name = input("what is your name : ")
 
 
 
