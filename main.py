@@ -32,7 +32,16 @@ print("this programe gives you discount depending on how many seats are left on 
 #ask for name
 name = input("what is your name : ")
 
+#ask what from the dic 
+a = 0 #adding a vaule to a 
+# printing the dic
+for x in constants.destination:
+  a =  a + 1
+  print(a, x)
 
+#aking what flight are the taking 
+print('where do your want to fly to {}?'.format(name))
+flight  = input('plase pick from 1 to 6 : ')
 
 
 
