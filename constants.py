@@ -1,51 +1,61 @@
 
-destination = {
-  'auckland to Wellington' : {
+
+
+
+flight_nub = {
+  1 : {
     'max_nub_of_seats' : 500,
     'nub_of_sets_left' : 345,
-    'price' : 233
+    'price' : 233,
+    'destination' : 'auckland to Wellington'
 
 
     },
 
-  'auckland to Rotorua' : {
+  2 : {
     'max_nub_of_seats' : 500,
     'nub_of_sets_left' : 36,
-    'price' : 467
+    'price' : 467,
+    'destination' : 'auckland to Rotorua' 
 
   },
 
-  'Wellington to Auckland' : {
+   3 : {
     'max_nub_of_seats' : 500,
     'nub_of_sets_left' : 104,
-    'price' : 405
+    'price' : 405,
+    'destination' : 'Wellington to Auckland'
 
 
   },
 
-  'Wellington to Rotorua' : {
+   4 : {
     'max_nub_of_seats' : 500,
     'nub_of_sets_left' : 89,
-    'price' : 451
+    'price' : 451,
+    'destination' : 'Wellington to Rotorua'
 
   },
   
-  'Rotorua to Auckland' : {
+   5 : {
     'max_nub_of_seats' : 500,
     'nub_of_sets_left' : 201,
-    'price' : 330
+    'price' : 330,
+    'destination' : 'Rotorua to Auckland'
+
   },
 
-  'Rotorua to Wellington' : {
+   6 : {
     'max_nub_of_seats' : 500,
     'nub_of_sets_left' : 186,
-    'price' : 415
+    'price' : 415,
+    'destination' : 'Rotorua to Wellington'
+
   }
 }
 
 
+users = {
 
-
-
-
-
+  
+}

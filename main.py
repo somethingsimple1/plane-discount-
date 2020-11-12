@@ -29,32 +29,58 @@ discount type :
 #what is this programe 
 print("this programe gives you discount depending on how many seats are left on each flight")
 
+#--------------------------------------------------------------------------------
+
 #ask for name
 name = input("what is your name : ")
+name_len = len(name)
+#
+while name_len <= 1 or name_len >= 16:
+  if name_len <= 1:
+    print('That name is too short')
+    name = input("what is your name : ")
+    name_len = len(name)
+  
+  elif name_len >= 16:
+    print('That name is too long')
+    name = input("what is your name : ")
+    name_len = len(name)
+  
+  else:
+    s
+  
+    
+#--------------------------------------------------------------------------------
 
 #ask what from the dic 
-a = 0 #adding a vaule to a 
 # printing the dic
-for x in constants.destination:
-  a =  a + 1
-  print(a, x)
+for key in constants.flight_nub:
+  print(key, constants.flight_nub[key]['destination'])
 
-#aking what flight are the taking 
+#--------------------------------------------------------------------------------  
+
+#asking what flight are the taking 
 print('where do your want to fly to {}?'.format(name))
-flight  = input('plase pick from 1 to 6 : ')
+user_flight  = input('plase pick the flight your want to take with the fight number : ')
+
+#--------------------------------------------------------------------------------
+#math for the discount 
 
 
-#asking the use if they can fly tomorrow  
-early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
-if early_bird == "yes": 
-  discount()
 
-elif early_bird == "no": 
-  print(" ")
+#--------------------------------------------------------------------------------
 
-else: 
-  print('that is not an opion')
+def early_bird():
+  #asking the use if they can fly tomorrow  
+  early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
+  if early_bird == "yes": 
+    print(" ")
+    
+  elif early_bird == "no": 
+    print(" ")
 
+  else: 
+    print('that is not an opion')
 
 
 
