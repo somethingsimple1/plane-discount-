@@ -33,8 +33,22 @@ def MathDiscount():
 #--------------------------------------------------------------------------------
 
 def again(): 
-  
-  
+  while yon != 'yes' or yon != 'no':
+
+    yon = input('yes ')
+
+        
+    if yon == 'yes': 
+      print('hello')
+      exit() 
+        
+    elif yon == 'no': 
+      exit()
+
+    else: 
+      print(' ')
+      print('that is not an opion')
+      yon = input(' ')
 
 #--------------------------------------------------------------------------------
 
@@ -48,18 +62,18 @@ print("this programe gives you discount depending on how many seats are left on 
 
 
 #ask for name
-name = input("what is your name : ")
+name = input('what is your name : ')
 
 name_len = len(name)
 while name_len <= 1 or name_len >= 16:
   if name_len <= 1:
     print('That name is too short')
-    name = input("what is your name : ")
+    name = input('what is your name : ')
     name_len = len(name)
     
   elif name_len >= 16:
     print('That name is too long')
-    name = input("what is your name : ")
+    name = input('what is your name : ')
     name_len = len(name)
     
   else:
@@ -89,7 +103,7 @@ price_flight = constants.flight_nub[user_flight]['price']
 #asking the use if they can fly tomorrow  
 early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
 
-while yon != "yes" or yon != "no"
+while early_bird != "yes" or early_bird != "no":
   if early_bird == "yes": 
     MathDiscount()
       
