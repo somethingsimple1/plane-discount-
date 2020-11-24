@@ -53,7 +53,23 @@ def welcome():
 
 #--------------------------------------------------------------------------------
 
+def flying(name):
+  name = name
 
+  print("Flight Number", "-"," destination/flight")
+
+  for key in constants.flight_nub:
+    print("     ", key, "      - ",constants.flight_nub[key]['destination'])
+
+  print(' ')
+  print('==============================')
+  print(' ')
+
+  #asking what flight are the taking 
+  print('where do your want to fly to {}?'.format(name))
+  user_flight_nub  = int(input('plase pick the flight your want to take with the fight number : '))
+
+  
 
 
 
