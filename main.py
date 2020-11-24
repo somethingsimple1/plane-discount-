@@ -97,12 +97,15 @@ def MathDiscount(name, user_flight_nub):
   nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
   price_flight = constants.flight_nub[user_flight_nub]['price'] 
 
+  seat_number = nub_seats + 1
+
   discount_percentage = (nub_seats/max_seats) * 100
-  discounted_flight = discount_percentage * price_flight
-
-  GiveDiscount(name, user_flight_nub, discounted_flight)
+  price_flight_user = discount_percentage * price_flight
 
 
+  GiveDiscount(name, user_flight_nub, price_flight_user, seat_number)
+
+#--------------------------------------------------------------------------------
 
 def Adding(name, user_flight_nub):
   max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
@@ -110,14 +113,49 @@ def Adding(name, user_flight_nub):
   price_flight = constants.flight_nub[user_flight_nub]['price'] 
 
   seat_number = nub_seats + 1
-  GiveDiscount(name, user_flight_nub, price_flight, seat_number)
+  price_flight_user
+  GiveDiscount(name, user_flight_nub, price_flight_user, seat_number)
 
-def GiveDiscount(name, user_flight_nub, price_flight, seat_number):
-  discount = discounted_flight
-    print('##############################')
-    print('{}, your flight number is {} and the number seat you have is {}. The price of your flight is going to be {}.'.format(name, user_flight_nub, seat_number, flight_price))
+#--------------------------------------------------------------------------------
 
+def GiveDiscount(name, user_flight_nub, price_flight_user, seat_number):
+  print(' ')
+  print(' ')
+  
+  print('{}, your flight number is {} and the number seat you have is {}. The price of your flight is going to be ${}'.format(name, user_flight_nub, seat_number, price_flight_user))
+  
+  print(' ')
+  
+  again()
 
+#--------------------------------------------------------------------------------
+
+def again():
+  yon = 'yon'
+  while yon != 'yes' or yon != 'no':
+
+    yon = input('do you want to make anther booking? yes or no? :')
+
+        
+    if yon == 'yes': 
+      print(' ')
+      print(' ')
+      print('############################################################')
+      print('############################################################')
+      print(' ')
+      print(' ')
+      welcome()
+
+        
+    elif yon == 'no': 
+      exit()
+
+    else: 
+      print(' ')
+      print('that is not an opion')
+      print(' ')
+
+#--------------------------------------------------------------------------------
 
 
 
