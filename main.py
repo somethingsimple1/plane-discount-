@@ -74,11 +74,6 @@ def flying(name):
 #--------------------------------------------------------------------------------
 def CanTheyFly(name, user_flight_nub):
 
-  #pulling the numbers from the dic
-  max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
-  nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
-  price_flight = constants.flight_nub[user_flight_nub]['price'] 
-
   #asking the use if they can fly tomorrow  
   early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
 
@@ -97,6 +92,11 @@ def CanTheyFly(name, user_flight_nub):
 #--------------------------------------------------------------------------------
 
 def MathDiscount(name, user_flight_nub):
+    #pulling the numbers from the dic
+  max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
+  nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
+  price_flight = constants.flight_nub[user_flight_nub]['price'] 
+
   discount_percentage = (nub_seats/max_seats) * 100
   discounted_flight = discount_percentage * price_flight
 
@@ -104,9 +104,18 @@ def MathDiscount(name, user_flight_nub):
 
 
 
+def Adding(name, user_flight_nub):
+  max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
+  nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
+  price_flight = constants.flight_nub[user_flight_nub]['price'] 
 
+  seat_number = nub_seats + 1
+  GiveDiscount(name, user_flight_nub, price_flight, seat_number)
 
-
+def GiveDiscount(name, user_flight_nub, price_flight, seat_number):
+  discount = discounted_flight
+    print('##############################')
+    print('{}, your flight number is {} and the number seat you have is {}. The price of your flight is going to be {}.'.format(name, user_flight_nub, seat_number, flight_price))
 
 
 
