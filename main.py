@@ -24,14 +24,14 @@ percentage discount : the percentage discount
 
 """
 
-
+#--------------------------------------------------------------------------------
 def welcome(): 
-  #what is this programe 
+  #telling the  users what the programe is  
   print('this programe gives you discount depending on how many seats are left on each flight')
 
-  #ask for name
+  
 
-
+  #this is to ask for the users name and to test the lenth of the user name to make it fit 
   name_len = -1
   while name_len <= 1 or name_len >= 16:
 
@@ -53,9 +53,11 @@ def welcome():
 
 #--------------------------------------------------------------------------------
 
+#printing and asking the user for what flight they want to take 
 def flying(name):
   name = name
 
+  #printing out the list of flights 
   print("Flight Number", "-"," destination/flight")
 
   for key in constants.flight_nub:
@@ -65,18 +67,21 @@ def flying(name):
   print('==============================')
   print(' ')
 
-  #asking what flight are the taking 
+  #asking what flight the user wants 
   print('where do your want to fly to {}?'.format(name))
   user_flight_nub  = int(input('plase pick the flight your want to take with the fight number : '))
+
 
   CanTheyFly(name, user_flight_nub)
 
 #--------------------------------------------------------------------------------
+#asking if they can fly tomorrow 
 def CanTheyFly(name, user_flight_nub):
 
   #asking the use if they can fly tomorrow  
   early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
 
+  #yes or no? code
   while early_bird != "yes" or early_bird != "no":
     if early_bird == "yes": 
       MathDiscount(name, user_flight_nub)
@@ -91,14 +96,17 @@ def CanTheyFly(name, user_flight_nub):
 
 #--------------------------------------------------------------------------------
 
+#the math for the discount if they are going to fly the next day 
 def MathDiscount(name, user_flight_nub):
-    #pulling the numbers from the dic
+  #pulling the numbers from the dic
   max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
   nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
   price_flight = constants.flight_nub[user_flight_nub]['price'] 
 
+  #adding 1 to the seats so that the user can see what number seat they have
   seat_number = nub_seats + 1
 
+  #math--
   discount_percentage = (nub_seats/max_seats) * 100
   price_flight_user = discount_percentage * price_flight
 
@@ -106,17 +114,20 @@ def MathDiscount(name, user_flight_nub):
   GiveDiscount(name, user_flight_nub, price_flight_user, seat_number)
 
 #--------------------------------------------------------------------------------
-
+#this is if the user can fly the next day
 def Adding(name, user_flight_nub):
+  #pulling the numbers from the dic
   nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
   price_flight = constants.flight_nub[user_flight_nub]['price'] 
 
+  #math--
   seat_number = nub_seats + 1
-  price_flight_user
+  price_flight_user = price_flight
   GiveDiscount(name, user_flight_nub, price_flight_user, seat_number)
 
 #--------------------------------------------------------------------------------
 
+#giving the user the what there flight number is, the price of the fight, and what number seat they have
 def GiveDiscount(name, user_flight_nub, price_flight_user, seat_number):
   print(' ')
   print(' ')
@@ -129,13 +140,15 @@ def GiveDiscount(name, user_flight_nub, price_flight_user, seat_number):
 
 #--------------------------------------------------------------------------------
 
+#asking if they want to make anther booking 
 def again():
   yon = 'yon'
   while yon != 'yes' or yon != 'no':
 
+    #asking
     yon = input('do you want to make anther booking? yes or no? :')
 
-        
+    #if yes
     if yon == 'yes': 
       print(' ')
       print(' ')
@@ -145,7 +158,7 @@ def again():
       print(' ')
       welcome()
 
-        
+    #if no
     elif yon == 'no': 
       exit()
 
