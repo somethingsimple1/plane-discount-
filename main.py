@@ -108,7 +108,6 @@ def MathDiscount(name, user_flight_nub):
 #--------------------------------------------------------------------------------
 
 def Adding(name, user_flight_nub):
-  max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
   nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
   price_flight = constants.flight_nub[user_flight_nub]['price'] 
 
