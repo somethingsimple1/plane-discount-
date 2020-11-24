@@ -26,21 +26,27 @@ percentage discount : the percentage discount
 def MathDiscount():
   discount_percentage = (nub_seats/max_seats) * 100
   discounted_flight = discount_percentage * price_flight
-
-  print(discounted_flight)
-  again()
+  again(discounted_flight)
 
 #--------------------------------------------------------------------------------
 
-def again(): 
+def again(discounted_flight):
+  discount = discounted_flight
+  
+
+
+
+
+  yon = 'yon'
   while yon != 'yes' or yon != 'no':
 
-    yon = input('yes ')
+    yon = input('do you want to make anther booking? yes or no? :')
 
         
     if yon == 'yes': 
-      print('hello')
-      exit() 
+      print('##############################')
+      print('##############################')
+      print(' ')
         
     elif yon == 'no': 
       exit()
@@ -48,7 +54,7 @@ def again():
     else: 
       print(' ')
       print('that is not an opion')
-      yon = input(' ')
+      print(' ')
 
 #--------------------------------------------------------------------------------
 
@@ -56,36 +62,41 @@ def again():
 
 
 #what is this programe 
-print("this programe gives you discount depending on how many seats are left on each flight")
+print('this programe gives you discount depending on how many seats are left on each flight')
 
 #--------------------------------------------------------------------------------
 
 
 #ask for name
-name = input('what is your name : ')
 
-name_len = len(name)
+
+name_len = -1
 while name_len <= 1 or name_len >= 16:
+
+  name = input('what is your name : ')
+  name_len = len(name)
+
   if name_len <= 1:
     print('That name is too short')
-    name = input('what is your name : ')
-    name_len = len(name)
-    
+  
   elif name_len >= 16:
     print('That name is too long')
-    name = input('what is your name : ')
-    name_len = len(name)
     
   else:
-    print('')
+    print(' ')
+    print('==============================')
+    print(' ')
 
 #--------------------------------------------------------------------------------
 
-#ask what from the dic 
-#printing the dic
-print("Flight Number", "-","destination/flight")
+
+print("Flight Number", "-"," destination/flight")
 for key in constants.flight_nub:
   print("     ", key, "      - ",constants.flight_nub[key]['destination'])
+
+print(' ')
+print('==============================')
+print(' ')
 
 #asking what flight are the taking 
 print('where do your want to fly to {}?'.format(name))
