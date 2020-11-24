@@ -69,8 +69,29 @@ def flying(name):
   print('where do your want to fly to {}?'.format(name))
   user_flight_nub  = int(input('plase pick the flight your want to take with the fight number : '))
 
-  
+  CanTheyFly(name, user_flight_nub)
 
+#--------------------------------------------------------------------------------
+def CanTheyFly(name, user_flight_nub):
 
+  #pulling the numbers from the dic
+  max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
+  nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
+  price_flight = constants.flight_nub[user_flight_nub]['price'] 
+
+  #asking the use if they can fly tomorrow  
+  early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
+
+  while early_bird != "yes" or early_bird != "no":
+    if early_bird == "yes": 
+      
+        
+    elif early_bird == "no": 
+      
+
+    else: 
+      print(' ')
+      print('that is not an opion')
+      early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
 
 welcome()
