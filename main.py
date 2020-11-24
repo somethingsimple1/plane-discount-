@@ -1,4 +1,4 @@
-import math 
+import sys
 import constants
 """
 what is this program going to do 
@@ -82,14 +82,14 @@ def flying(name):
       
 
       if constants.flight_nub.get(user_flight_nub) is None:
-        print('that is not a flight number :')
+        print('that is not a flight number')
       
 
       else:
         CanTheyFly(name, user_flight_nub)
 
     except:
-      print('that is not a flight number :')
+      print('that is not a flight number')
 
   
 #--------------------------------------------------------------------------------
@@ -103,15 +103,15 @@ def CanTheyFly(name, user_flight_nub):
   while early_bird != "yes" or early_bird != "no":
 
     #asking the use if they can fly tomorrow  
-    early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
-    early_bird.replace(" ", "")
-    early_bird.lower()
+    early_bird = str(input('Are your able to fly tomorrow {}? Yes or No : '.format(name)))
+    early_bird = early_bird.replace(" ", "")
+    early_bird = early_bird.lower()
 
     if early_bird == "yes": 
       MathDiscount(name, user_flight_nub)
         
     elif early_bird == "no": 
-      GiveDiscount(name, user_flight_nub) 
+      Adding(name, user_flight_nub) 
 
     else: 
       print(' ')
@@ -131,8 +131,10 @@ def MathDiscount(name, user_flight_nub):
 
   #math--
   discount_percentage = (nub_seats/max_seats) * 100
-  price_flight_user = discount_percentage * price_flight
 
+  p = discount_percentage * price_flight / 100
+
+  price_flight_user = price_flight - p
 
   GiveDiscount(name, user_flight_nub, price_flight_user, seat_number)
 
@@ -170,11 +172,14 @@ def again():
 
     #asking
     yon = input('do you want to make anther booking? yes or no? :')
+    yon = yon.replace(" ", "")
+    yon = yon.lower()
 
     #if yes
     if yon == 'yes': 
       print(' ')
       print(' ')
+
       print('############################################################')
       print('############################################################')
       print(' ')
@@ -183,7 +188,7 @@ def again():
 
     #if no
     elif yon == 'no': 
-      exit()
+      sys.exit()
 
     else: 
       print(' ')
