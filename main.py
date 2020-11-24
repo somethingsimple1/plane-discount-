@@ -28,6 +28,9 @@ percentage discount : the percentage discount
 def welcome(): 
   #telling the  users what the programe is  
   print('this programe gives you discount depending on how many seats are left on each flight')
+  print(' ')
+  print(' ')
+  print(' ')
 
   
 
@@ -35,7 +38,9 @@ def welcome():
   name_len = -1
   while name_len <= 1 or name_len >= 16:
 
-    name = input('what is your name : ')
+    print('what should we call you?')
+    print('(all spaces will turn to underscore and cant have two in a row)')
+    name = input('You can only 2 - 16 characters. : ')
     name_len = len(name)
 
     if name_len <= 1:
@@ -67,22 +72,41 @@ def flying(name):
   print('==============================')
   print(' ')
 
-  #asking what flight the user wants 
-  print('where do your want to fly to {}?'.format(name))
-  user_flight_nub  = int(input('plase pick the flight your want to take with the fight number : '))
+  
+  user_flight_nub = -99
+  while  constants.flight_nub.get(user_flight_nub) is None:
+    try:
+      #asking what flight the user wants 
+      print('where do your want to fly to {}?'.format(name))
+      user_flight_nub  = int(input('plase pick the flight your want to take with the fight number : '))
+      
 
+      if constants.flight_nub.get(user_flight_nub) is None:
+        print('that is not a flight number :')
+      
 
-  CanTheyFly(name, user_flight_nub)
+      else:
+        CanTheyFly(name, user_flight_nub)
 
+    except:
+      print('that is not a flight number :')
+
+  
 #--------------------------------------------------------------------------------
 #asking if they can fly tomorrow 
 def CanTheyFly(name, user_flight_nub):
 
-  #asking the use if they can fly tomorrow  
-  early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
-
+  
+ 
+  early_bird ='yon'
   #yes or no? code
   while early_bird != "yes" or early_bird != "no":
+
+    #asking the use if they can fly tomorrow  
+    early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
+    early_bird.replace(" ", "")
+    early_bird.lower()
+
     if early_bird == "yes": 
       MathDiscount(name, user_flight_nub)
         
@@ -92,7 +116,6 @@ def CanTheyFly(name, user_flight_nub):
     else: 
       print(' ')
       print('that is not an opion')
-      early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
 
 #--------------------------------------------------------------------------------
 
@@ -172,3 +195,7 @@ def again():
 
 
 welcome()
+
+
+
+ 
