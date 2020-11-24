@@ -84,14 +84,32 @@ def CanTheyFly(name, user_flight_nub):
 
   while early_bird != "yes" or early_bird != "no":
     if early_bird == "yes": 
-      
+      MathDiscount(name, user_flight_nub)
         
     elif early_bird == "no": 
-      
+      GiveDiscount(name, user_flight_nub) 
 
     else: 
       print(' ')
       print('that is not an opion')
       early_bird = input('Are your able to fly tomorrow {}? Yes or No : '.format(name))
+
+#--------------------------------------------------------------------------------
+
+def MathDiscount(name, user_flight_nub):
+  discount_percentage = (nub_seats/max_seats) * 100
+  discounted_flight = discount_percentage * price_flight
+
+  GiveDiscount(name, user_flight_nub, discounted_flight)
+
+
+
+
+
+
+
+
+
+
 
 welcome()
