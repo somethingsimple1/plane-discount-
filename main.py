@@ -36,25 +36,31 @@ def welcome():
 
   #this is to ask for the users name and to test the lenth of the user name to make it fit 
   name_len = -1
+  #error catching, test leanth
   while name_len <= 1 or name_len >= 16:
 
     print('what should we call you?')
     print('(all spaces will be removed)')
     name = str(input('You can only 2 - 16 characters. : '))
+
     name_len = len(name)
-    name = name.replace(" ", "")
+    name = name.replace(" ", "") #- reaplacing all spaces with no spcaces 
 
 
+    #if name is shorter than 1 
     if name_len <= 1:
       print('That name is too short')
     
+    #if name is longer than 16
     elif name_len >= 16:
       print('That name is too long')
       
     else:
+      #spacers
       print(' ')
       print('==============================')
       print(' ')
+
       flying(name)
 
 
@@ -66,15 +72,15 @@ def flying(name):
 
   #printing out the list of flights 
   print("Flight Number", "-"," destination/flight")
-
   for key in constants.flight_nub:
     print("     ", key, "      - ",constants.flight_nub[key]['destination'])
 
+  #spacers
   print(' ')
   print('==============================')
   print(' ')
 
-  
+  #big error catching 
   user_flight_nub = -99
   while  constants.flight_nub.get(user_flight_nub) is None:
     try:
@@ -82,7 +88,7 @@ def flying(name):
       print('where do your want to fly to {}?'.format(name))
       user_flight_nub  = int(input('plase pick the flight your want to take with the fight number : '))
       
-
+      #seeing if the flight they pited is there
       if constants.flight_nub.get(user_flight_nub) is None:
         print('that is not a flight number')
       
@@ -90,6 +96,7 @@ def flying(name):
       else:
         CanTheyFly(name, user_flight_nub)
 
+    #an value error showed be im lookng for a int not a string this fix
     except ValueError:
       print('that is not a flight number')
 
@@ -97,21 +104,23 @@ def flying(name):
 #--------------------------------------------------------------------------------
 #asking if they can fly tomorrow 
 def CanTheyFly(name, user_flight_nub):
-
-  
- 
   early_bird ='yon'
+
   #yes or no? code
   while early_bird != "yes" or early_bird != "no":
 
     #asking the use if they can fly tomorrow  
     early_bird = str(input('Are your able to fly tomorrow {}? Yes or No : '.format(name)))
+
+    #error catching 
     early_bird = early_bird.replace(" ", "")
     early_bird = early_bird.lower()
 
+    #if yes go to math discount
     if early_bird == "yes": 
       MathDiscount(name, user_flight_nub)
-        
+      
+    #if no got to adding
     elif early_bird == "no": 
       Adding(name, user_flight_nub) 
 
@@ -124,12 +133,12 @@ def CanTheyFly(name, user_flight_nub):
 #the math for the discount if they are going to fly the next day 
 def MathDiscount(name, user_flight_nub):
   #pulling the numbers from the dic
-  max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
-  nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
+  max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] #geting the max number of seats
+  nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] #geting the number of seats left
   constants.flight_nub[user_flight_nub]['nub_of_seats_left']  += 1 #adding 1 to the amout of seats left
-  price_flight = constants.flight_nub[user_flight_nub]['price'] 
+  price_flight = constants.flight_nub[user_flight_nub]['price'] #getting the price of the flight
 
-  tomorrow_flying = "True" #
+  tomorrow_flying = "True" #setting flying tomorrow
 
   #adding 1 to the seats so that the user can see what number seat they have
   seat_number = nub_seats + 1
@@ -147,14 +156,16 @@ def MathDiscount(name, user_flight_nub):
 #this is if the user can fly the next day
 def Adding(name, user_flight_nub):
   #pulling the numbers from the dic
-  nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
+  nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] #geting the number of seats left 
   constants.flight_nub[user_flight_nub]['nub_of_seats_left']  += 1 #adding 1 to the amout of seats left
-  price_flight = constants.flight_nub[user_flight_nub]['price'] 
+  price_flight = constants.flight_nub[user_flight_nub]['price'] #getting the price of the flight
 
-  tomorrow_flying = "False"
+  tomorrow_flying = "False" #setting flying tomorrow
 
-  #math--
+  #adding 1 to the seats so that the user can see what number seat they have
   seat_number = nub_seats + 1
+  
+  #setting flying tomorrow
   price_flight_user = price_flight
   GiveDiscount(name, user_flight_nub, price_flight_user, seat_number, tomorrow_flying)
 
@@ -169,18 +180,15 @@ def GiveDiscount(name, user_flight_nub, price_flight_user, seat_number, tomorrow
   
   print(' ')
 
-  d = {}
+  
   #adding everying to a user dic 
+  d = {}
   d['user_flight_nub'] = user_flight_nub
   d['seat_number'] = seat_number
   d['price_flight_user'] = price_flight_user
   d['tomorrow_flying'] = tomorrow_flying
   constants.user[name] = d
-  
 
-
-
-  
   again()
 
 #--------------------------------------------------------------------------------
