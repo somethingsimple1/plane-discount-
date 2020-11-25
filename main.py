@@ -126,8 +126,10 @@ def MathDiscount(name, user_flight_nub):
   #pulling the numbers from the dic
   max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
   nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
-  constants.flight_nub[user_flight_nub]['nub_of_seats_left']  += 1
+  constants.flight_nub[user_flight_nub]['nub_of_seats_left']  += 1 #adding 1 to the amout of seats left
   price_flight = constants.flight_nub[user_flight_nub]['price'] 
+
+  tomorrow_flying = "True" #
 
   #adding 1 to the seats so that the user can see what number seat they have
   seat_number = nub_seats + 1
@@ -139,31 +141,45 @@ def MathDiscount(name, user_flight_nub):
 
   price_flight_user = price_flight - p
 
-  GiveDiscount(name, user_flight_nub, price_flight_user, seat_number)
+  GiveDiscount(name, user_flight_nub, price_flight_user, seat_number, tomorrow_flying)
 
 #--------------------------------------------------------------------------------
 #this is if the user can fly the next day
 def Adding(name, user_flight_nub):
   #pulling the numbers from the dic
   nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
-  constants.flight_nub[user_flight_nub]['nub_of_seats_left']  += 1
+  constants.flight_nub[user_flight_nub]['nub_of_seats_left']  += 1 #adding 1 to the amout of seats left
   price_flight = constants.flight_nub[user_flight_nub]['price'] 
+
+  tomorrow_flying = "False"
 
   #math--
   seat_number = nub_seats + 1
   price_flight_user = price_flight
-  GiveDiscount(name, user_flight_nub, price_flight_user, seat_number)
+  GiveDiscount(name, user_flight_nub, price_flight_user, seat_number, tomorrow_flying)
 
 #--------------------------------------------------------------------------------
 
 #giving the user the what there flight number is, the price of the fight, and what number seat they have
-def GiveDiscount(name, user_flight_nub, price_flight_user, seat_number):
+def GiveDiscount(name, user_flight_nub, price_flight_user, seat_number, tomorrow_flying):
   print(' ')
   print(' ')
   
   print('{}, your flight number is {} and the number seat you have is {}. The price of your flight is going to be ${}'.format(name, user_flight_nub, seat_number, price_flight_user))
   
   print(' ')
+
+  d = {}
+  #adding everying to a user dic 
+  d['user_flight_nub'] = user_flight_nub
+  d['seat_number'] = seat_number
+  d['price_flight_user'] = price_flight_user
+  d['tomorrow_flying'] = tomorrow_flying
+  constants.user[name] = d
+  
+
+
+
   
   again()
 
@@ -172,10 +188,10 @@ def GiveDiscount(name, user_flight_nub, price_flight_user, seat_number):
 #asking if they want to make anther booking 
 def again():
   yon = 'yon'
-  while yon != 'yes' or yon != 'no':
+  while yon != 'yes' or yon != 'exit':
 
     #asking
-    yon = input('do you want to make anther booking? yes or no? :')
+    yon = input('do you want to make anther booking? yes or exit? :')
     yon = yon.replace(" ", "")
     yon = yon.lower()
 
@@ -190,9 +206,22 @@ def again():
       print(' ')
       welcome()
 
-    #if no
-    elif yon == 'no': 
-      sys.exit()
+    #if exit
+    elif yon == 'exit': 
+      for i in range(1,5):
+        i += i
+        print('----------')
+
+      print('here is all the users')
+      print(constants.user)
+
+      for i in range(1,5):
+        i += i
+        print('----------')
+
+      print("This programe has been terminated")
+      exit()
+      
 
     else: 
       print(' ')
