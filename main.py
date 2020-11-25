@@ -39,9 +39,11 @@ def welcome():
   while name_len <= 1 or name_len >= 16:
 
     print('what should we call you?')
-    print('(all spaces will turn to underscore and cant have two in a row)')
-    name = input('You can only 2 - 16 characters. : ')
+    print('(all spaces will be removed)')
+    name = str(input('You can only 2 - 16 characters. : '))
     name_len = len(name)
+    name = name.replace(" ", "")
+
 
     if name_len <= 1:
       print('That name is too short')
@@ -88,7 +90,7 @@ def flying(name):
       else:
         CanTheyFly(name, user_flight_nub)
 
-    except:
+    except ValueError:
       print('that is not a flight number')
 
   
@@ -124,6 +126,7 @@ def MathDiscount(name, user_flight_nub):
   #pulling the numbers from the dic
   max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] 
   nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
+  constants.flight_nub[user_flight_nub]['nub_of_seats_left']  += 1
   price_flight = constants.flight_nub[user_flight_nub]['price'] 
 
   #adding 1 to the seats so that the user can see what number seat they have
@@ -143,6 +146,7 @@ def MathDiscount(name, user_flight_nub):
 def Adding(name, user_flight_nub):
   #pulling the numbers from the dic
   nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] 
+  constants.flight_nub[user_flight_nub]['nub_of_seats_left']  += 1
   price_flight = constants.flight_nub[user_flight_nub]['price'] 
 
   #math--
