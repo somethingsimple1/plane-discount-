@@ -52,7 +52,7 @@ def welcome():
       print('That name is too short')
     
     #if name is longer than 16
-    elif name_len >= 16:
+    elif name_len >= 17:
       print('That name is too long')
       
     else:
@@ -210,7 +210,7 @@ def again():
   print(' ')
   print('==============================')
   print(' ')
-  
+
   yon = 'yon'
   while yon != 'yes' or yon != 'exit':
 
@@ -223,7 +223,6 @@ def again():
     if yon == 'yes': 
       print(' ')
       print(' ')
-
       print('############################################################')
       print('############################################################')
       print(' ')
