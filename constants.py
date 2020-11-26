@@ -19,7 +19,7 @@ flight_nub = {
     'max_nub_of_seats' : 500,
     'nub_of_seats_left' : 345,
     'price' : 233,
-    'destination' : 'auckland to Wellington'
+    'destination' : 'Auckland to Wellington'
 
 
     },
@@ -28,7 +28,7 @@ flight_nub = {
     'max_nub_of_seats' : 500,
     'nub_of_seats_left' : 36,
     'price' : 467,
-    'destination' : 'auckland to Rotorua' 
+    'destination' : 'Auckland to Rotorua' 
 
   },
 

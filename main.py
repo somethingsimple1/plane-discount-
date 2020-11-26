@@ -35,27 +35,37 @@ def welcome():
   
 
   #this is to ask for the users name and to test the lenth of the user name to make it fit 
-  name_len = -1
+  i = False
   #error catching, test leanth
-  while name_len <= 1 or name_len >= 16:
+  while i ==  False:
 
     print('what should we call you?')
     print('(all spaces will be removed)')
     name = str(input('You can only 2 - 16 characters. : '))
 
-    name_len = len(name)
-    name = name.replace(" ", "") #- reaplacing all spaces with no spcaces 
+    
+    alpha = name.isalpha()
+    name = name.replace(" ", "") #- reaplacing all spaces with no spcaces
+    name_len = len(name) 
+    name = name.title()
 
 
     #if name is shorter than 1 
     if name_len <= 1:
+      print(' ')
       print('That name is too short')
     
     #if name is longer than 16
-    elif name_len >= 17:
+    elif name_len > 16:
+      print(' ')
       print('That name is too long')
+
+    elif alpha == False:
+      print(' ')
+      print('That name doesnt have only letters.')
       
     else:
+      i = True
       #spacers
       print(' ')
       print('==============================')
@@ -141,6 +151,7 @@ def MathDiscount(name, user_flight_nub):
 
   #pulling the numbers from the dic
   max_seats = constants.flight_nub[user_flight_nub]['max_nub_of_seats'] #geting the max number of seats
+
   nub_seats = constants.flight_nub[user_flight_nub]['nub_of_seats_left'] #geting the number of seats left
   constants.flight_nub[user_flight_nub]['nub_of_seats_left']  += 1 #adding 1 to the amout of seats left
   price_flight = constants.flight_nub[user_flight_nub]['price'] #getting the price of the flight
